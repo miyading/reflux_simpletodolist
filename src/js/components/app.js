@@ -7,8 +7,7 @@ var APP = React.createClass({
             items: [],
             text: '',
             done: false,
-            showSelectAll: false,
-            listItemSelected: false
+            showSelectAll: false
         };
     },
 
@@ -30,15 +29,11 @@ var APP = React.createClass({
         this.forceUpdate();
     },
 
-    handleListItemSelected: function () {
-    },
-
     render: function () {
         return (
             <div>
                 <h3>TODO</h3>
                 <TodoList items={this.state.items}
-                          handleListItemSelected={this.handleListItemSelected}
                           handleClick={this.handleClick}
                           showSelectAll={this.state.showSelectAll}/>
 
