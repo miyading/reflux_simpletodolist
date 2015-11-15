@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var del = require('del');
@@ -16,10 +17,16 @@ gulp.task('clean', function (cb) {
     del(['dist/**/*.*'], cb);
 });
 
+gulp.task('sass', function() {
+    gulp.src('src/scss/**/*.*')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('dist/css'));
+});
+
 gulp.task('copy', function () {
     gulp.src('src/index.html')
         .pipe(gulp.dest('dist'));
-    gulp.src('src/css/index.css')
+    gulp.src('src/scss/**/*.*')
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -31,10 +38,12 @@ gulp.task('serve', function () {
     });
 });
 
-gulp.task('default', ['clean', 'browserify', 'copy']);
+gulp.task('default', ['clean', 'browserify', 'copy', 'sass']);
 
-gulp.task('dev', ['watch', 'serve']);
+gulp.task('dev', ['watch', 'serve', 'default']);
 
 gulp.task('watch', function () {
     gulp.watch('src/**/*.*', ['default'], reload);
 });
+
+
