@@ -7,7 +7,7 @@ var Reflux = require('reflux');
 
 var App = React.createClass({
 
-    mixins: [Reflux.connect(TodoStore, "items")],
+    mixins: [Reflux.connect(TodoStore)],
 
     addItem: function(text) {
         TodoAction.addItem.trigger(text);
@@ -18,7 +18,7 @@ var App = React.createClass({
             <div>
                 <h1>To Do List</h1>
                 <AddComponent addItem={this.addItem} />
-                <ShowComponent items={this.state.items}/>
+                <ShowComponent />
             </div>
         );
     }
