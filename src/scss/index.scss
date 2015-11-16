@@ -1,0 +1,36 @@
+@import 'partials/base';
+$mainColor: #F0FFFF;
+$formColor: #7FFFD4;
+$fontColor: #00008B;
+
+.message {
+  font-size: 20pt;
+  font-color: $fontColor;
+}
+
+@mixin headTitle($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+
+.container {
+  background: $mainColor;
+
+  h1 {
+    @include  headTitle(30pt, $fontColor);
+  }
+
+  form {
+    color: #7FFFD4;
+    .input-text {
+      @extend .message;
+    }
+    .submit-button {
+      @extend .message;
+    }
+  }
+
+  p {
+    @extend .message;
+  }
+}
