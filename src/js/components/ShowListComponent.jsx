@@ -5,8 +5,6 @@ var TodoStore = require('../stores/TodoStore.jsx');
 
 var ShowComponent = React.createClass({
 
-    //mixins: [Reflux.listenTo(TodoStore)],
-
     render: function () {
         return (
             <div>

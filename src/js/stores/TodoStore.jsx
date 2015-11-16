@@ -9,13 +9,8 @@ var TodoStore = Reflux.createStore({
         this.trigger(this.items);
     },
 
-    /*onShowItem: function () {
-        return TodoStore.items;
-    },*/
-
     onAddItem: function (item) {
         TodoStore.items.push(item);
-        console.log("ding " + this.items);
         this.trigger(this.items);
     }
 });
