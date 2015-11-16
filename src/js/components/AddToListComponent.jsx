@@ -11,7 +11,6 @@ var AddComponent = React.createClass({
         var val = React.findDOMNode(this.refs.inputText).value.trim();
         if (val) {
             TodoAction.addItem(val);
-            //TodoAction.showItem();
             React.findDOMNode(this.refs.inputText).value = '';
        }
     },
