@@ -2,6 +2,7 @@
 $mainColor: #F0FFFF;
 $formColor: #7FFFD4;
 $fontColor: #00008B;
+$errorColor: #c42d37;
 
 .message {
   font-size: 20pt;
@@ -30,7 +31,18 @@ $fontColor: #00008B;
     }
   }
 
-  p {
+  .delete-item {
+    text-decoration: line-through;
+    color: $errorColor;
+  }
+
+  li {
     @extend .message;
+    .delete-icon {
+      color: $errorColor;
+    }
+    p {
+      display: inline-block;
+    }
   }
 }

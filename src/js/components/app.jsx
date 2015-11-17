@@ -9,16 +9,12 @@ var App = React.createClass({
 
     mixins: [Reflux.connect(TodoStore)],
 
-    addItem: function(text) {
-        TodoAction.addItem.trigger(text);
-    },
-
     render: function () {
         return (
             <div>
                 <h1>To Do List</h1>
-                <AddComponent addItem={this.addItem} />
-                <ShowComponent />
+                <AddComponent />
+                <ShowComponent items={TodoStore.items}/>
             </div>
         );
     }

@@ -18,7 +18,7 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('sass', function() {
-    gulp.src('src/scss/**/*.*')
+    gulp.src('src/scss/*.*')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist/css'));
 });
@@ -26,8 +26,6 @@ gulp.task('sass', function() {
 gulp.task('copy', function () {
     gulp.src('src/index.html')
         .pipe(gulp.dest('dist'));
-    gulp.src('src/scss/**/*.*')
-        .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('serve', function () {

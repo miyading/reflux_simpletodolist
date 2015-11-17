@@ -1,5 +1,5 @@
 var React = require('react');
 var Reflux = require('reflux');
-var APP = require('./components/app.jsx');
+var APP = require('./components/App.jsx');
 
 React.render(<APP/>, document.getElementById('main'));
