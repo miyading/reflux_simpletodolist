@@ -7,7 +7,19 @@ var Reflux = require('reflux');
 
 var App = React.createClass({
 
-    mixins: [Reflux.connect(TodoStore)],
+    mixins: [Reflux.listenTo(TodoStore, "onItemsChange")],
+
+    getInitialState: function () {
+        return {
+            items: []
+        }
+    },
+
+    onItemsChange: function () {
+        this.setState({
+            items: TodoStore.items
+        })
+    },
 
     render: function () {
         return (

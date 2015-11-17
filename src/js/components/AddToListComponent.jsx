@@ -1,6 +1,5 @@
 var React = require('react');
 var Reflux = require('reflux');
-var TodoStore = require('../stores/TodoStore.jsx');
 var TodoAction = require('../actions/TodoAction.jsx');
 
 var AddComponent = React.createClass({
